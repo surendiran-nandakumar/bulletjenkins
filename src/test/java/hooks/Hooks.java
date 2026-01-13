@@ -87,6 +87,7 @@ public class Hooks {
         if (executionMode.equalsIgnoreCase("local")) {
             if (platformName.equalsIgnoreCase("Android")) {
                 capabilities.setCapability("appium:automationName", "uiAutomator2");
+                capabilities.setCapability("appium:app", "/Users/apple/Downloads/app-prod-debug.apk");
                 capabilities.setCapability("appium:appPackage","com.bulletshorts");
                 capabilities.setCapability("appium:appActivity","com.bullet.MainActivity");
             } else if (platformName.equalsIgnoreCase("iOS")) {
