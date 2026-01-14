@@ -57,13 +57,24 @@ public class Hooks {
         context.paymentsAndCoinsPages = new PaymentsAndCoinsPages(context.driver);
     }
 
-    @After
-    public void tearDown(Scenario scenario) throws IOException {
-        if (scenario.isFailed()) {
+//    @After
+//    public void tearDown(Scenario scenario) throws IOException {
+//        if (scenario.isFailed()) {
+//            File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
+//            scenario.attach(fileContent, "image/png", "image");
+//        }
+@After
+public void tearDown(Scenario scenario) throws IOException {
+    if (scenario.isFailed() && driver != null) {
+        try {
             File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
             scenario.attach(fileContent, "image/png", "image");
+        } catch (Exception e) {
+            System.out.println("Could not capture screenshot: " + e.getMessage());
         }
+    }
 
 
 
