@@ -118,8 +118,8 @@ public class Hooks {
 
 
             // BrowserStack credentials (from Jenkins)
-            caps.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USER"));
-            caps.setCapability("browserstack.key", System.getenv("BROWSERSTACK_KEY"));
+//            caps.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USER"));
+//            caps.setCapability("browserstack.key", System.getenv("BROWSERSTACK_KEY"));
 
             // Optional metadata
             caps.setCapability("project", "Bullet Automation");
