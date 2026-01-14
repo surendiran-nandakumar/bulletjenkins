@@ -114,11 +114,12 @@ public class Hooks {
             caps.setCapability("appium:newCommandTimeout", 300);
 
             // BrowserStack uploaded app ID
-            caps.setCapability("app", "bs://c6d5196f76dd2c9e326d5b278283a306e7f6b758");
+            caps.setCapability("app", System.getProperty("appId", "bs://c6d5196f76dd2c9e326d5b278283a306e7f6b758"));
+
 
             // BrowserStack credentials (from Jenkins)
-            caps.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USERNAME"));
-            caps.setCapability("browserstack.key", System.getenv("BROWSERSTACK_ACCESS_KEY"));
+            caps.setCapability("browserstack.user", System.getenv("BROWSERSTACK_USER"));
+            caps.setCapability("browserstack.key", System.getenv("BROWSERSTACK_KEY"));
 
             // Optional metadata
             caps.setCapability("project", "Bullet Automation");
